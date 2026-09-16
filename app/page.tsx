@@ -38,7 +38,7 @@ export default function Home() {
         </nav>
         <div className="ganesha">
           <Image
-            src="/ganesha.png"
+            src="/Wedding-Invitation/ganesha.png"
             alt="Ganesha"
             width={140}
             height={140}
