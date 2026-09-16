@@ -1,1 +1,0 @@
-// This file can be used for future TypeScript types or interfaces.

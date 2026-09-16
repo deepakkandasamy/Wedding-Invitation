@@ -26,7 +26,7 @@ export default function ChildhoodReveal() {
             <div className="childhood-photos">
               <div className="childhood-photo">
                 <Image
-                  src="/images/ashwarya-childhood.jpeg"
+                  src="/Wedding-Invitation/images/ashwarya-childhood.jpeg"
                   alt="Ashwarya as a child"
                   width={500}
                   height={600}
@@ -35,7 +35,7 @@ export default function ChildhoodReveal() {
 
               <div className="childhood-photo">
                 <Image
-                  src="/images/deepak-childhood.jpeg"
+                  src="/Wedding-Invitation/images/deepak-childhood.jpeg"
                   alt="Deepak as a child"
                   width={500}
                   height={600}
@@ -52,7 +52,7 @@ export default function ChildhoodReveal() {
 
             <div className="couple-photo">
               <Image
-                src="/images/couple.jpeg"
+                src="/Wedding-Invitation/images/couple.jpeg"
                 alt="Ashwarya and Deepak together"
                 width={900}
                 height={700}

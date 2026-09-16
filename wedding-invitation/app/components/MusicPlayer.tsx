@@ -1,22 +1,32 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    const startMusic = async () => {
+      if (!audioRef.current) return;
+
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+      } catch {
+        // Browser blocked autoplay.
+        console.log("Autoplay blocked until user interaction");
+      }
+    };
+
+    startMusic();
+  }, []);
+
   const toggleMusic = async () => {
-    console.log("Music button clicked!");
+    if (!audioRef.current) return;
 
-    if (!audioRef.current) {
-      console.log("Audio element not found");
-      setError("Audio element not found");
-      return;
-    }
-
-    if (isPlaying) {
+    if (!audioRef.current.paused) {
       audioRef.current.pause();
       setIsPlaying(false);
       return;
@@ -26,7 +36,6 @@ export default function MusicPlayer() {
       setError("");
       await audioRef.current.play();
       setIsPlaying(true);
-      console.log("Music started!");
     } catch (err) {
       console.error("Audio playback failed:", err);
       setError("Could not play audio");
@@ -37,13 +46,9 @@ export default function MusicPlayer() {
     <>
       <audio
         ref={audioRef}
-        src="/music/wedding.mp3"
+        src="/Wedding-Invitation/music/wedding.mp3"
         loop
         preload="auto"
-        onError={() => {
-          console.error("Audio file failed to load");
-          setError("Audio file not found");
-        }}
       />
 
       <button
@@ -64,24 +69,6 @@ export default function MusicPlayer() {
           </span>
         )}
       </button>
-
-      {error && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "90px",
-            right: "20px",
-            zIndex: 1001,
-            padding: "10px 14px",
-            background: "#8B0000",
-            color: "white",
-            fontSize: "12px",
-            borderRadius: "6px",
-          }}
-        >
-          {error}
-        </div>
-      )}
     </>
   );
 }

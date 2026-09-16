@@ -167,7 +167,7 @@ export default function Home() {
         <div className="venue-layout">
           <div className="venue-visual">
             <Image
-              src="/images/venue.jpg"
+              src="/Wedding-Invitation/images/venue.jpg"
               alt={WEDDING.venue}
               fill
               className="venue-image"
