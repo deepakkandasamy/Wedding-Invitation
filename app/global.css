@@ -82,14 +82,14 @@ a {
   flex-direction: column;
   justify-content: space-between;
   padding: 32px clamp(24px, 5vw, 80px) 42px;
-  color: var(--ivory);
+  color: var(--forest-deep);
   background:
     radial-gradient(
-      ellipse at 75% 25%,
-      rgba(181, 148, 91, 0.16) 0%,
-      transparent 35%
+      ellipse at 50% 45%,
+      rgba(255, 250, 240, 0.18) 0%,
+      rgba(255, 250, 240, 0.48) 68%
     ),
-    linear-gradient(135deg, var(--forest) 0%, var(--forest-deep) 100%);
+    url("/Wedding-Invitation/images/floral-wedding-background.jpeg") center top / cover no-repeat;
   isolation: isolate;
 }
 
@@ -121,14 +121,14 @@ a {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: #80603b;
 }
 
 .nav-mark {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 20px;
   letter-spacing: 0.04em;
-  color: var(--ivory);
+  color: var(--forest-deep);
   text-transform: none;
 }
 
@@ -153,7 +153,7 @@ a {
   align-items: center;
   gap: 14px;
   margin-bottom: 30px;
-  color: var(--gold-light);
+  color: #80603b;
   font-size: 20px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -302,7 +302,7 @@ a {
   align-items: center;
   gap: 15px;
   padding: 0 10px;
-  color: var(--gold-light);
+  color: #80603b;
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -321,6 +321,14 @@ a {
   max-width: 1300px;
   margin: 0 auto;
   padding: clamp(90px, 12vw, 170px) clamp(24px, 6vw, 90px);
+}
+
+.details,
+.invitation,
+.venue {
+  background:
+    linear-gradient(rgba(255, 250, 240, 0.84), rgba(255, 250, 240, 0.9)),
+    url("/Wedding-Invitation/images/temple-background.jpg") center top / cover no-repeat;
 }
 
 .section-label {
@@ -603,69 +611,23 @@ a {
 
 .venue-layout {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(40px, 9vw, 130px);
+  grid-template-columns: minmax(0, 620px);
+  justify-content: center;
   align-items: center;
   padding-top: 80px;
-}
-
-.venue-visual {
-  position: relative;
-  width: 100%;
-  min-height: 520px;
-  overflow: hidden;
-}
-
-.venue-image {
-  object-fit: cover;
-  object-position: center;
-}
-
-.venue-script {
-  position: relative;
-  z-index: 1;
-  color: var(--gold-light);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(20px, 3vw, 35px);
-  font-style: italic;
-}
-
-.venue-large {
-  position: relative;
-  z-index: 1;
-  margin-top: 8px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(38px, 5vw, 65px);
-  letter-spacing: -0.05em;
-}
-
-.venue-visual-mark {
-  position: relative;
-  z-index: 1;
-  margin-top: 35px;
-  color: var(--gold);
-  font-size: 28px;
-}
-
-.venue-note {
-  position: absolute;
-  bottom: 25px;
-  color: rgba(245, 241, 232, 0.45);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-align: center;
 }
 
 .venue-info h2 {
   max-width: 400px;
-  margin: 0;
+  margin: 0 auto;
   font-size: clamp(42px, 5vw, 70px);
   line-height: 1;
   letter-spacing: -0.05em;
 }
 
 .venue-info .body-copy {
-  margin-top: 20px;
+  margin: 20px auto 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 18px;
@@ -673,7 +635,7 @@ a {
 
 .venue-placeholder {
   max-width: 320px;
-  margin: 35px 0;
+  margin: 35px auto;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.7;
@@ -1064,7 +1026,7 @@ a {
 .ganesha {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 85px;
   margin-bottom: 15px;
 }
 
@@ -1078,7 +1040,12 @@ a {
 .childhood-card {
   width: 100%;
   max-width: 620px;
+  box-sizing: border-box;
+  height: clamp(470px, 80vw, 520px);
   padding: 28px 22px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   background: #f8f1e5;
   border: 1px solid rgba(112, 76, 45, 0.2);
@@ -1131,6 +1098,7 @@ a {
   font-size: clamp(24px, 5vw, 36px);
   font-weight: 400;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .tap-hint {
@@ -1142,8 +1110,8 @@ a {
 
 .couple-photo {
   overflow: hidden;
-  width: 100%;
-  margin-bottom: 26px;
+  width: 52%;
+  margin: 0 auto 18px;
   border-radius: 16px;
   background: #e9dcc8;
 }
@@ -1157,11 +1125,20 @@ a {
 }
 
 .couple-names {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   color: #92704c;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 22px;
   letter-spacing: 0.04em;
+}
+
+.childhood-card.is-revealed h2 {
+  max-width: 320px;
+  font-size: clamp(20px, 4vw, 30px);
+}
+
+.childhood-card.is-revealed .tap-hint {
+  margin-top: 12px;
 }
 
 @media (max-width: 420px) {

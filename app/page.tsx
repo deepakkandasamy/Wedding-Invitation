@@ -165,16 +165,6 @@ export default function Home() {
         </div>
 
         <div className="venue-layout">
-          <div className="venue-visual">
-            <Image
-              src="/Wedding-Invitation/images/venue.jpg"
-              alt={WEDDING.venue}
-              fill
-              className="venue-image"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-
           <div className="venue-info">
             <p className="eyebrow">Where we meet</p>
             <h2>{WEDDING.venue}</h2>

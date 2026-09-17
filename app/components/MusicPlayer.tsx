@@ -5,22 +5,44 @@ import { useEffect, useRef, useState } from "react";
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [error, setError] = useState("");
 
   useEffect(() => {
-    const startMusic = async () => {
-      if (!audioRef.current) return;
+    const audio = audioRef.current;
+    if (!audio) return;
 
+    const startMusic = async () => {
       try {
-        await audioRef.current.play();
+        await audio.play();
         setIsPlaying(true);
       } catch {
-        // Browser blocked autoplay.
-        console.log("Autoplay blocked until user interaction");
+        // A first interaction is required by some browsers before sound can play.
       }
     };
 
-    startMusic();
+    const startAfterFirstInteraction = (event: Event) => {
+      if (
+        event.target instanceof Element &&
+        event.target.closest(".music-toggle")
+      ) {
+        return;
+      }
+
+      void startMusic();
+      window.removeEventListener("pointerdown", startAfterFirstInteraction);
+      window.removeEventListener("click", startAfterFirstInteraction);
+      window.removeEventListener("keydown", startAfterFirstInteraction);
+    };
+
+    void startMusic();
+    window.addEventListener("pointerdown", startAfterFirstInteraction);
+    window.addEventListener("click", startAfterFirstInteraction);
+    window.addEventListener("keydown", startAfterFirstInteraction);
+
+    return () => {
+      window.removeEventListener("pointerdown", startAfterFirstInteraction);
+      window.removeEventListener("click", startAfterFirstInteraction);
+      window.removeEventListener("keydown", startAfterFirstInteraction);
+    };
   }, []);
 
   const toggleMusic = async () => {
@@ -33,12 +55,10 @@ export default function MusicPlayer() {
     }
 
     try {
-      setError("");
       await audioRef.current.play();
       setIsPlaying(true);
-    } catch (err) {
-      console.error("Audio playback failed:", err);
-      setError("Could not play audio");
+    } catch {
+      // The play request may still be blocked until a browser-recognized gesture.
     }
   };
 
@@ -47,8 +67,11 @@ export default function MusicPlayer() {
       <audio
         ref={audioRef}
         src="/Wedding-Invitation/music/wedding.mp3"
+        autoPlay
         loop
         preload="auto"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
       />
 
       <button
