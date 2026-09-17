@@ -10,7 +10,7 @@ const cormorant = Cormorant_Garamond({
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  weight: "400",
+  weight: "700",
   variable: "--font-bodoni",
 });
 
