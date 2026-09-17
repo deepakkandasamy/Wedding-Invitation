@@ -1182,7 +1182,7 @@ a {
 .parents-names {
   font-family: var(--font-cormorant), serif;
   font-weight: 500;
-  font-size: clamp(28px, 5vw, 42px);
+  font-size: clamp(20px, 5vw, 36px);
   line-height: 1.15;
   letter-spacing: -0.01em;
   color: #493323;

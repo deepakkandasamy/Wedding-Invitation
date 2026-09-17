@@ -77,7 +77,7 @@ export default function Home() {
         <div className="details-grid">
           <div className="details-intro">
             <h2 className="parents-names">
-              Geetha Menon and Dileep Kumar
+              Geetha and Dileep Kumar
               <br />
               <i>&amp;</i>
               <br />
@@ -151,7 +151,7 @@ export default function Home() {
       {/* COUNTDOWN */}
       <section className="countdown-section">
         <div className="countdown-inner">
-          <p className="eyebrow light-eyebrow">Until we say, “I do”</p>
+          <p className="eyebrow light-eyebrow">Until we tie the knot</p>
           <h2>The moment is approaching.</h2>
           <Countdown targetDate="2026-11-15T10:00:00+05:30" />
         </div>
