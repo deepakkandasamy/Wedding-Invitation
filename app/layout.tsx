@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Parisienne } from "next/font/google";
+import { Cormorant_Garamond, Parisienne, Bodoni_Moda } from "next/font/google";
 import "./global.css";
 
 const cormorant = Cormorant_Garamond({
@@ -8,10 +8,10 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
 });
 
-const parisienne = Parisienne({
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-parisienne",
+  variable: "--font-bodoni",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${parisienne.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${bodoni.variable}`}>
       <body>{children}</body>
     </html>
   );

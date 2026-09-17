@@ -10,12 +10,12 @@ export default function ChildhoodReveal() {
     <section className="childhood-section">
       <div
         className={`childhood-card ${revealed ? "is-revealed" : ""}`}
-        onClick={() => setRevealed(true)}
+        onClick={() => setRevealed((current) => !current)}
         role="button"
         tabIndex={0}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
-            setRevealed(true);
+            setRevealed((current) => !current);
           }
         }}
       >
@@ -61,6 +61,7 @@ export default function ChildhoodReveal() {
 
             <h2>And this is where their story comes together.</h2>
             <p className="couple-names">Deepak &amp; Ashwarya</p>
+            <p className="tap-hint">Tap to see their childhood photos again ↗</p>
           </>
         )}
       </div>
