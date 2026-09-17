@@ -12,7 +12,7 @@ const WEDDING = {
 
   // TODO: Replace these once your venue is finalized.
   venue: "The Avenue Center Hotel",
-  location: "Ernakulam, Kerala, India",
+  location: "Panampilly Nagar,Ernakulam, Kerala, India",
   ceremonyTime: "11:00 AM",
 
   // TODO: Replace with your actual Google Maps URL.

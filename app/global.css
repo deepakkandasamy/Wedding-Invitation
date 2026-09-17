@@ -90,6 +90,7 @@ a {
       rgba(255, 250, 240, 0.48) 68%
     ),
     url("/Wedding-Invitation/images/floral-wedding-background.jpeg") center top / cover no-repeat;
+  background-color: var(--paper);
   isolation: isolate;
 }
 
@@ -329,6 +330,7 @@ a {
   background:
     linear-gradient(rgba(255, 250, 240, 0.84), rgba(255, 250, 240, 0.9)),
     url("/Wedding-Invitation/images/temple-background.jpg") center top / cover no-repeat;
+  background-color: var(--paper);
 }
 
 .section-label {
@@ -894,6 +896,24 @@ a {
 
   .rsvp-inner h2 {
     font-size: clamp(57px, 15vw, 100px);
+  }
+}
+
+@media (min-width: 701px) {
+  .hero,
+  .details,
+  .invitation,
+  .venue {
+    background-size: auto, auto 100%;
+    background-position: center, center top;
+  }
+
+  .hero-content {
+    max-width: 660px;
+  }
+
+  .hero-title {
+    font-size: clamp(64px, 10vw, 132px);
   }
 }
 
